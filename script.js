@@ -1,11 +1,13 @@
 
 const ul = document.querySelector('ul')
-let numberOfCards = prompt('Quantas cartas você quer?')
+let numberOfCards = prompt('How many cards do you want?')
+counter = 0;
 
 addingCards()
-
 function addingCards(){
-
+    while (numberOfCards % 2 !== 0){
+        numberOfCards = prompt('How many cards do you want?')
+    }
     for(let i = 0; i < numberOfCards; i++){
         
         ul.innerHTML += `
@@ -17,6 +19,17 @@ function addingCards(){
 }
 
 function turningCards(element){
-    element.classList.toggle('cardBack');
+    if (element.classList.contains('cardBack')){
+        element.classList.remove('cardBack');
+        counter--;
+    } else {
+        element.classList.add('cardBack');
+        counter++;
+    }    
+}
 
+function maxNumberOfTurnedCards(){
+    if (counter === 2){
+        
+    }
 }
