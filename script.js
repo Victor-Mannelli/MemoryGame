@@ -1,13 +1,15 @@
 
 const ul = document.querySelector('ul')
-let numberOfCards = prompt('How many cards do you want?')
+let numberOfCards = Number(prompt('How many cards do you want?'))
 counter = 0;
 
 addingCards()
 function addingCards(){
-    while (numberOfCards % 2 !== 0){
-        numberOfCards = prompt('How many cards do you want?')
+    
+    while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || numberOfCards % 2 !== 0){
+        numberOfCards = Number(prompt('How many cards do you want? It has to be even and beetween 4 and 14!'))
     }
+
     for(let i = 0; i < numberOfCards; i++){
         
         ul.innerHTML += `
