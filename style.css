@@ -25,39 +25,57 @@ header h1{
     letter-spacing: -0.004em;
     color: #75B79E; 
 }
-ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-ul li {
-    background-color: #A7E9AF;
-    width: 117px;
-    height: 146px;
-    border-radius: 5px;
-
-    margin-right: 34px;
-    margin-bottom: 34px;
-
-    transition: all 1s linear;
-}
-ul img {
+.parrot {
     padding-top: 22px;
     padding-left: 10px;
     padding-right: 7px;
     padding-bottom: 22px;
 }
-.cardBack {
-    background-image:url("./archives/banana.png");
-    background-position: center;
-    background-size:120%;
+.flip-card-back img{
+    width: 117px;
+    height: 146px;
+}
 
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 34px;
+}
+.card {    
+    width: 117px;
+    height: 146px;
+    perspective: 1000px;
+    border-radius: 5px;
+}
+.card:hover {
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+}
+.flip-card-back {
     transform: rotateY(180deg);
 }
-.cardBack img {
-    display: none;
+.flippedCard .card-inner {
+    transform: rotateY(180deg);
 }
-.GameBlocker {
+
+.gameBlocker {
     width: 100%;
     height: 100%;
     background-color: aqua;
