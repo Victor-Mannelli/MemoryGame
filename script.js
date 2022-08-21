@@ -1,4 +1,6 @@
-let counter = 0;
+let flippedCardsCounter = 0;
+let moveCounter = document.querySelector('.span')
+let moves = 0;
 
 let numberOfCards = Number(prompt('How many cards do you want?'))
 while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || numberOfCards % 2 !== 0){
@@ -41,11 +43,11 @@ function addingCards(){
 
 function turningCards(element){
 
-    if (counter !== 2 && element.classList.contains('flippedCard') === false){
+    if (flippedCardsCounter !== 2 && element.classList.contains('flippedCard') === false){
         element.classList.add('flippedCard');
-        counter++;
+        flippedCardsCounter++;
     } 
-    if (counter === 2){
+    if (flippedCardsCounter === 2){
         setTimeout(hidingCards, 1000);
     }
 }
@@ -54,16 +56,19 @@ function hidingCards(){
     let flippedCard = document.querySelectorAll('.flippedCard');
     let flippedCardBackImage = document.querySelectorAll('.flippedCard .fruits');
     
-    console.log(flippedCardBackImage[0].classList)
-    console.log(flippedCardBackImage[1].classList)
-
     if (flippedCardBackImage[0].classList.value === flippedCardBackImage[1].classList.value){
 
         flippedCard[0].classList.add('checked')
         flippedCard[1].classList.add('checked')
+
     } 
+        moves++;
+        moveCounter.innerHTML = moves;
+
     for(i = 0; i < flippedCard.length; i++){
         flippedCard[i].classList.remove('flippedCard')
     }
-    counter = 0;
+    flippedCardsCounter = 0;
 }
+console.log(moveCounter.innerHTML)
+console.log(moves)

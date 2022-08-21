@@ -15,7 +15,7 @@ header h1{
     display: flex;
     justify-content: center;
     margin-top: 27px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -24,6 +24,21 @@ header h1{
     line-height: 66px;
     letter-spacing: -0.004em;
     color: #75B79E; 
+}
+header p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.004em;
+    color: #75B79E; 
+}
+p span {
+    padding-left: 10px;
 }
 .parrot {
     padding-top: 22px;
