@@ -4,7 +4,7 @@ const main = document.querySelector('main')
 let numberOfCards = Number(prompt('How many cards do you want?'))
 let counter = 0;
 
-let images = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon"];
+let images = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
 images.sort(scramble);
 function scramble(){
     return Math.random() - 0.5; 
@@ -35,19 +35,21 @@ function addingCards(){
 }
 
 function turningCards(element){
-    console.log(element);
-    if (element.classList.contains('flippedCard')){
-        element.classList.remove('flippedCard');
-        counter--;
-    } else {
+
+    if (counter !== 2 && element.classList.contains('flippedCard') === false){
         element.classList.add('flippedCard');
         counter++;
-    }    
-    console.log(counter)
+        console.log(counter)
+    } 
+    if (counter === 2){
+        setTimeout(hidingCards, 1000);
+    }
 }
 
-function maxNumberOfTurnedCards(){
-    if (counter === 2){
-        
+function hidingCards(){
+    const flipped = document.querySelectorAll('.flippedCard')
+    for (let i = 0; i < flipped.length; i++){
+        flipped[i].classList.remove('flippedCard')
     }
+    counter = 0;
 }

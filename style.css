@@ -59,7 +59,6 @@ main {
     transform-style: preserve-3d;
     transition: transform 0.8s;
 }
-
 .flip-card-front, .flip-card-back {
     position: absolute;
     backface-visibility: hidden;
