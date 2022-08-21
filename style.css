@@ -73,7 +73,9 @@ main {
 .flippedCard .card-inner {
     transform: rotateY(180deg);
 }
-
+.checked .card-inner {
+    transform: rotateY(-180deg);
+}
 .gameBlocker {
     width: 100%;
     height: 100%;

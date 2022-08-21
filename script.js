@@ -57,7 +57,7 @@ function hidingCards(){
     console.log(flippedCardBackImage[0].classList)
     console.log(flippedCardBackImage[1].classList)
 
-    if (flippedCardBackImage[0].classList === flippedCardBackImage[1].classList){
+    if (flippedCardBackImage[0].classList.value === flippedCardBackImage[1].classList.value){
 
         flippedCard[0].classList.add('checked')
         flippedCard[1].classList.add('checked')
