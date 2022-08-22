@@ -1,6 +1,7 @@
 let flippedCardsCounter = 0;
 let moves = 0;
 let checkedCounter = 0;
+let seconds = 0;
 
 let gameName = document.querySelector('.game-name')
 let gameModeScreen = document.querySelector('.choosing-game-mode')
@@ -114,7 +115,7 @@ function hidingCards(){
     }
 }
 function resetGame(){
-    alert(`Well Played! You won in ${moves} moves!`)
+    alert(`Well Played! You won in ${moves} moves and ${seconds} seconds!`)
     let answer = prompt("yes or no");
 
     if (answer.toLowerCase() === "yes"){
@@ -127,4 +128,10 @@ function resetGame(){
 function reloadPage() {
     location.reload();
 }
+setInterval(stopwatch, 1000)
 
+function stopwatch(){
+    let stopwatchSeconds = document.querySelector('.stopwatch-seconds')
+    seconds++;
+    stopwatchSeconds.innerHTML = seconds;
+}
