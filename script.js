@@ -120,7 +120,6 @@ function resetGame(){
     } 
     if (answer.toLowerCase() === "no"){
         alert("Thanks for playing!")
-        reloadPage()
     }
 }
 function reloadPage() {
