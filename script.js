@@ -21,8 +21,8 @@ function addingCards(){
     let chosenCards = [];
 
     for(let i = 0; i < (numberOfCards / 2); i++){
-        chosenCards.push(fruits[i])
-        chosenCards.push(fruits[i])
+        chosenCards.push(parrots[i])
+        chosenCards.push(parrots[i])
     }
     chosenCards.sort(scramble);
     function scramble(){
@@ -37,7 +37,7 @@ function addingCards(){
                     <img class="parrot" src="./archives/parrot.png" alt=""></img>
                 </div>
                 <div class="flip-card-back">
-                    <img class="fruits ${chosenCards[i]}" src="./archives/${chosenCards[i]}.png" alt=""></img>
+                    <img class="fruits ${chosenCards[i]}" src="./giffs/${chosenCards[i]}.gif" alt=""></img>
                 </div>
             </div>
         </div>
