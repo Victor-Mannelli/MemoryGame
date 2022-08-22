@@ -1,8 +1,11 @@
 let flippedCardsCounter = 0;
-let moveCounter = document.querySelector('.span')
 let moves = 0;
+let checkedCounter = 0;
 
+let moveCounter = document.querySelector('.span')
 let numberOfCards = Number(prompt('How many cards do you want?'))
+const main = document.querySelector('main')
+
 while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || numberOfCards % 2 !== 0){
     
     numberOfCards = Number(prompt('How many cards do you want? It has to be even and beetween 4 and 14!'))
@@ -12,12 +15,14 @@ while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || number
 addingCards()
 function addingCards(){
 
-    let images = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
+    let fruits = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
+    let parrots = ["boat", "bobross", "explody", "fiesta", "metal", "triplets", "unicorn"]
+
     let chosenCards = [];
 
     for(let i = 0; i < (numberOfCards / 2); i++){
-        chosenCards.push(images[i])
-        chosenCards.push(images[i])
+        chosenCards.push(fruits[i])
+        chosenCards.push(fruits[i])
     }
     chosenCards.sort(scramble);
     function scramble(){
@@ -25,7 +30,6 @@ function addingCards(){
     }
 
     for(let i = 0; i < (numberOfCards); i++){
-        const main = document.querySelector('main')
         main.innerHTML += `
         <div class="card" onclick="turningCards(this)"> 
             <div class="card-inner">
@@ -61,6 +65,7 @@ function hidingCards(){
         flippedCard[0].classList.add('checked')
         flippedCard[1].classList.add('checked')
 
+        checkedCounter++
     } 
         moves++;
         moveCounter.innerHTML = moves;
@@ -69,6 +74,22 @@ function hidingCards(){
         flippedCard[i].classList.remove('flippedCard')
     }
     flippedCardsCounter = 0;
+    if (checkedCounter * 2 === numberOfCards){
+        setTimeout(resetGame, 500);
+    }
 }
-console.log(moveCounter.innerHTML)
-console.log(moves)
+function resetGame(){
+    alert(`Well Played! You won in ${moves} moves!`)
+    let answer = prompt("yes or no");
+
+    if (answer.toLowerCase() === "yes"){
+        reloadPage()
+    } 
+    if (answer.toLowerCase() === "no"){
+        alert("Thanks for playing!")
+    }
+}
+
+function reloadPage() {
+    location.reload();
+}
