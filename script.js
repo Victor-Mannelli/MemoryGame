@@ -4,7 +4,7 @@ let checkedCounter = 0;
 
 let gameName = document.querySelector('.game-name')
 let gameModeScreen = document.querySelector('.choosing-game-mode')
-let moveCounter = document.querySelector('.span')
+let moveCounter = document.querySelector('.span-moves-counter')
 const main = document.querySelector('main')
 
 let numberOfCards = Number(prompt('How many cards do you want?'))
@@ -75,7 +75,7 @@ function addingCardsFruits(){
         </div>
         `;
     }
-    gameName.innerHTML = "FRUITS CARD GAME"
+    gameName.innerHTML = "FRUITS"
 
     gameModeScreen.classList.add('hidden')
 
@@ -127,3 +127,4 @@ function resetGame(){
 function reloadPage() {
     location.reload();
 }
+

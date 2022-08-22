@@ -37,7 +37,7 @@ header p {
     letter-spacing: -0.004em;
     color: #75B79E; 
 }
-p span {
+.span-moves-counter {
     padding-left: 10px;
 }
 .parrot {
@@ -149,6 +149,25 @@ main {
 .hidden {
     display: none;
 }
+.middle-game-name::after {
+    content: " ";
+    white-space: pre;
+}
+.game-name::after {
+    content: " ";
+    white-space: pre;
+}
+.stopwatch {
+    margin-right: 20px;
+    
+}
+.stopwatch-seconds{
+    padding-left: 10px;
+}
+header div {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 @media (max-width: 560px){
     .choosing-game-mode h1 {
@@ -156,16 +175,29 @@ main {
         line-height: 55px;
         margin-bottom: 50px;
     }
-    .middle-span::after {
+    .middle-gamemode-span::after {
         content: "\a";
         white-space: pre;
     }
-    .middle-span::before {
+    .middle-gamemode-span::before {
         content: "\a";
         white-space: pre;
     }
     .buttons div {
         margin-bottom: 50px;
+    }
+    .game-name::after {
+        content: "";
+        white-space: pre;
+    }
+    .middle-game-name::after {
+        content: "";
+        white-space: pre;
+    }
+    header h1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -191,6 +223,6 @@ main {
         line-height: 42px;
     }
     header p {
-        font-size: 20px;
+        font-size: 17px;
     }
 }
