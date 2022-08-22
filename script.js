@@ -2,9 +2,11 @@ let flippedCardsCounter = 0;
 let moves = 0;
 let checkedCounter = 0;
 
+let gameModeScreen = document.querySelector('.choosing-game-mode')
 let moveCounter = document.querySelector('.span')
-let numberOfCards = Number(prompt('How many cards do you want?'))
 const main = document.querySelector('main')
+
+let numberOfCards = Number(prompt('How many cards do you want?'))
 
 while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || numberOfCards % 2 !== 0){
     
@@ -12,12 +14,9 @@ while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || number
 
 }
 
-addingCards()
-function addingCards(){
+function addingCardsParrots(){
 
-    let fruits = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
     let parrots = ["boat", "bobross", "explody", "fiesta", "metal", "triplets", "unicorn"]
-
     let chosenCards = [];
 
     for(let i = 0; i < (numberOfCards / 2); i++){
@@ -37,12 +36,47 @@ function addingCards(){
                     <img class="parrot" src="./archives/parrot.png" alt=""></img>
                 </div>
                 <div class="flip-card-back">
-                    <img class="fruits ${chosenCards[i]}" src="./giffs/${chosenCards[i]}.gif" alt=""></img>
+                    <img class="cardImages ${chosenCards[i]}" src="./giffs/${chosenCards[i]}.gif" alt=""></img>
                 </div>
             </div>
         </div>
         `;
     }
+
+    gameModeScreen.classList.add('hidden')
+
+}
+function addingCardsFruits(){
+
+    let fruits = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
+    let chosenCards = [];
+
+    for(let i = 0; i < (numberOfCards / 2); i++){
+        chosenCards.push(fruits[i])
+        chosenCards.push(fruits[i])
+    }
+    chosenCards.sort(scramble);
+    function scramble(){
+        return Math.random() - 0.5; 
+    }
+
+    for(let i = 0; i < (numberOfCards); i++){
+        main.innerHTML += `
+        <div class="card" onclick="turningCards(this)"> 
+            <div class="card-inner">
+                <div class="flip-card-front">
+                    <img class="parrot" src="./archives/parrot.png" alt=""></img>
+                </div>
+                <div class="flip-card-back">
+                    <img class="cardImages ${chosenCards[i]}" src="./archives/${chosenCards[i]}.png" alt=""></img>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    gameModeScreen.classList.add('hidden')
+
 }
 
 function turningCards(element){
@@ -55,10 +89,9 @@ function turningCards(element){
         setTimeout(hidingCards, 1000);
     }
 }
-
 function hidingCards(){
     let flippedCard = document.querySelectorAll('.flippedCard');
-    let flippedCardBackImage = document.querySelectorAll('.flippedCard .fruits');
+    let flippedCardBackImage = document.querySelectorAll('.flippedCard .cardImages');
     
     if (flippedCardBackImage[0].classList.value === flippedCardBackImage[1].classList.value){
 
@@ -87,9 +120,9 @@ function resetGame(){
     } 
     if (answer.toLowerCase() === "no"){
         alert("Thanks for playing!")
+        reloadPage()
     }
 }
-
 function reloadPage() {
     location.reload();
 }
