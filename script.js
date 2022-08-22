@@ -2,6 +2,7 @@ let flippedCardsCounter = 0;
 let moves = 0;
 let checkedCounter = 0;
 
+let gameName = document.querySelector('.game-name')
 let gameModeScreen = document.querySelector('.choosing-game-mode')
 let moveCounter = document.querySelector('.span')
 const main = document.querySelector('main')
@@ -74,6 +75,7 @@ function addingCardsFruits(){
         </div>
         `;
     }
+    gameName.innerHTML = "FRUITS CARD GAME"
 
     gameModeScreen.classList.add('hidden')
 
