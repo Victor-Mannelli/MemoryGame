@@ -118,7 +118,7 @@ function hidingCards(){
 }
 function resetGame(){
     alert(`Well Played! You won in ${moves} moves and ${seconds} seconds!`)
-    let answer = prompt("yes or no");
+    let answer = prompt("Do you want to play again? yes or no");
 
     if (answer.toLowerCase() === "yes"){
         reloadPage()
