@@ -17,6 +17,7 @@ while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || number
 }
 
 function addingCardsParrots(){
+    setInterval(stopwatch, 1000)
 
     let parrots = ["boat", "bobross", "explody", "fiesta", "metal", "triplets", "unicorn"]
     let chosenCards = [];
@@ -49,6 +50,7 @@ function addingCardsParrots(){
 
 }
 function addingCardsFruits(){
+    setInterval(stopwatch, 1000)
 
     let fruits = ["banana", "berry", "kiwi", "orange", "strawberry", "watermelon", "avocado"];
     let chosenCards = [];
@@ -128,7 +130,6 @@ function resetGame(){
 function reloadPage() {
     location.reload();
 }
-setInterval(stopwatch, 1000)
 
 function stopwatch(){
     let stopwatchSeconds = document.querySelector('.stopwatch-seconds')
