@@ -2,18 +2,34 @@ let flippedCardsCounter = 0;
 let moves = 0;
 let checkedCounter = 0;
 let seconds = 0;
+let numberOfCards = 0;
 
 let gameName = document.querySelector('.game-name')
 let gameModeScreen = document.querySelector('.choosing-game-mode')
 let moveCounter = document.querySelector('.span-moves-counter')
 const main = document.querySelector('main')
+const overTheScreen = document.querySelector('.over-the-screen')
 
-let numberOfCards = Number(prompt('How many cards do you want?'))
-
-while (isNaN(numberOfCards) || numberOfCards > 14 || numberOfCards < 4 || numberOfCards % 2 !== 0){
-    
-    numberOfCards = Number(prompt('How many cards do you want? It has to be even and beetween 4 and 14!'))
-
+choosingCardsNumber()
+function choosingCardsNumber(){
+    overTheScreen.innerHTML = `
+        <div class="game-start">
+            <h1> Welcome to the Memory Card Game! </h1>
+            <p> To start the game <br> Choose the number of cards! </p>
+            <div class="number-of-cards">
+                <button onclick="checkingSelectedCardNumber(this)"> 4 </button>
+                <button onclick="checkingSelectedCardNumber(this)"> 6 </button>
+                <button onclick="checkingSelectedCardNumber(this)"> 8 </button>
+                <button onclick="checkingSelectedCardNumber(this)"> 10 </button>
+                <button onclick="checkingSelectedCardNumber(this)"> 12 </button>
+                <button onclick="checkingSelectedCardNumber(this)"> 14 </button>
+            </div>
+        </div>
+    `
+}
+function checkingSelectedCardNumber(selector){
+    numberOfCards = selector.innerHTML
+    overTheScreen.innerHTML = ""
 }
 
 function addingCardsParrots(){
@@ -69,7 +85,7 @@ function addingCardsFruits(){
         <div class="card" onclick="turningCards(this)"> 
             <div class="card-inner">
                 <div class="flip-card-front">
-                    <img class="parrot" src="./archives/parrot.png" alt=""></img>
+                    <img class="fruit-basket" src="./archives/fruit-basket.png" alt=""></img>
                 </div>
                 <div class="flip-card-back">
                     <img class="cardImages ${chosenCards[i]}" src="./archives/${chosenCards[i]}.png" alt=""></img>
@@ -112,20 +128,30 @@ function hidingCards(){
         flippedCard[i].classList.remove('flippedCard')
     }
     flippedCardsCounter = 0;
-    if (checkedCounter * 2 === numberOfCards){
-        setTimeout(resetGame, 500);
+    if (checkedCounter * 2 == numberOfCards){
+        setTimeout(resetGame, 1000);
     }
 }
 function resetGame(){
-    alert(`Well Played! You won in ${moves} moves and ${seconds} seconds!`)
-    let answer = prompt("Do you want to play again? yes or no");
+    // alert(`Well Played! You won in ${moves} moves and ${seconds} seconds!`)
+    // let answer = prompt("Do you want to play again? yes or no");
 
-    if (answer.toLowerCase() === "yes"){
-        reloadPage()
-    } 
-    if (answer.toLowerCase() === "no"){
-        alert("Thanks for playing!")
-    }
+    // if (answer.toLowerCase() === "yes"){
+    //     reloadPage()
+    // } 
+    // if (answer.toLowerCase() === "no"){
+    //     alert("Thanks for playing!")
+    // }
+    overTheScreen.innerHTML = `
+    <div class="game-start">
+        <h1> Well Played!</h1>
+        <p> You won in ${moves} moves and ${seconds} seconds! <br> Do you want to play again? </p>
+        <div class="end-game-buttons">
+            <button class="yes-button" onclick="reloadPage()"> Yes! </button>
+            <button class="no-button"> No </button>
+        </div>
+    </div>
+    `
 }
 function reloadPage() {
     location.reload();
