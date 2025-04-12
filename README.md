@@ -1,0 +1,2 @@
+## Memory Game
+A card-matching memory game where players flip over two cards at a time to find matching pairs. If the selected cards match, they stay revealed; if not, they flip back after a short delay. The game tests and improves the player's memory and concentration. Includes features like randomized card layout, move counter, and visual feedback on matches. Great for practicing logic, DOM manipulation, and game state management.
